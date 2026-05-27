@@ -1,5 +1,7 @@
 let mainMap = null
-const AMAP_KEY = '8281b6b8f40890205d2a2755b52dbfee'
+
+const AMAP_KEY = 'e737d608f4d8a2981131dc691c2c5f1a'
+const AMAP_SECURITY_JSCODE = '4885be35da193514fff454c1ee6d045a'
 
 // 默认开启WebGL
 // window.forceWebGL = true
@@ -105,6 +107,9 @@ export function loadFile () {
       resolve()
     } else {
       // 加载maps.js
+      window._AMapSecurityConfig = {
+        securityJsCode: AMAP_SECURITY_JSCODE
+      }
       const url = `https://webapi.amap.com/maps?v=2.0&key=${AMAP_KEY}&callback=_mapLoaded&plugin=${pluginsList.join(
         ','
       )}`
